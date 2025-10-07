@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Image Example</title>
+  </head>
+  <body>
+    <button onclick="change()">Change</button>
+    <img id="myImage" height="400" width="400" src="cat.jpg" alt="Cat" />
+
+    <script>
+      function change() {
+        const img = document.getElementById("myImage");
+        if (img.src.includes("cat.jpg")) {
+          img.src = "dog.jpg";
+          img.alt = "Dog";
+        } else {
+          img.src = "cat.jpg";
+          img.alt = "Cat";
+        }
+      }
+    </script>
+  </body>
+</html>
