@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="postId" type="number" />
+    <button id="fetchBtn">Fetch Post</button>
+    <div id="output"></div>
+
+    <script>
+      document.getElementById("fetchBtn").addEventListener("click", () => {
+        const id = document.getElementById("postId").value;
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById(
+              "output"
+            ).innerHTML = `<h2>${data.title}</h2><p>${data.body}</p>`;
+          })
+          .catch((err) => console.error("Error fetching data:", err));
+      });
+    </script>
+  </body>
+</html>
